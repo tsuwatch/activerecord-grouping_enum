@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'grouping_enum/version'
+require 'active_record/grouping_enum/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "grouping_enum"
-  spec.version       = GroupingEnum::VERSION
+  spec.name          = "activerecord-grouping_enum"
+  spec.version       = ActiveRecord::GroupingEnum::VERSION
   spec.authors       = ["Tomohiro Suwa"]
   spec.email         = ["neoen.gsn@gmail.com"]
 
