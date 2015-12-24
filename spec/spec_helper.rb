@@ -11,6 +11,10 @@ ActiveRecord::Base.establish_connection(
 ActiveRecord::Migration.verbose = false
 ActiveRecord::Migrator.migrate File.expand_path('../db/migrate', __FILE__), nil
 
+class Post < ActiveRecord::Base
+  enum status: { editing: 0, published: 1, deleted: 2 }
+end
+
 require 'database_cleaner'
 
 RSpec.configure do |config|

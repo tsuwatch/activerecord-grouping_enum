@@ -1,11 +1,5 @@
 require 'spec_helper'
 
 describe ActiveRecord::GroupingEnum do
-  it 'has a version number' do
-    expect(ActiveRecord::GroupingEnum::VERSION).not_to be nil
-  end
-
-  it 'does something useful' do
-    expect(false).to eq(true)
-  end
+  it { expect(Post).to respond_to(:grouping_enum) }
 end

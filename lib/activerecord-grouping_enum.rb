@@ -1,3 +1,6 @@
 require 'active_record'
 
-require 'active_record/grouping_enum'
+ActiveSupport.on_load(:active_record) do
+  require 'active_record/grouping_enum'
+  ActiveRecord::Base.send(:extend, ActiveRecord::GroupingEnum)
+end
