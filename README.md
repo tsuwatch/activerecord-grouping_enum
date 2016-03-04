@@ -1,6 +1,6 @@
 # ActiveRecord::GroupingEnum
 
-Allows you to group enum and can use enum's scope and boolean method.
+To enable the enum grouping and can use enum's scope and boolean method. 
 
 ## Installation
 
