@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Tomohiro Suwa"]
   spec.email         = ["neoen.gsn@gmail.com"]
 
-  spec.summary       = %q{To enable the enum grouping.}
-  spec.description   = %q{To enable the enum grouping and can use enum's scope and boolean method. }
+  spec.summary       = %q{Grouping the enum of ActiveRecord}
+  spec.description   = %q{Grouping the enum of ActiveRecord}
   spec.homepage      = "https://github.com/tsuwatch/activerecord-grouping_enum"
   spec.license       = "MIT"
 
