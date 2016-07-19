@@ -11,11 +11,10 @@ module ActiveRecord
 
             klass.send(:detect_enum_conflict!, name, key.to_s, true)
             klass.scope key.to_s, lambda {
-              query = "#{name} == #{klass.defined_enums[name.to_s][enums.shift.to_s]}"
-              enums.each do |enum|
-                query << " or #{name} == #{klass.defined_enums[name.to_s][enum.to_s]}"
+              clause = enums.each_with_object Hash.new { |h, k| h[k] = [] } do |enum, obj|
+                obj[name] << klass.public_send(name.to_s.pluralize.to_sym)[enum.to_s]
               end
-              klass.where(query)
+              klass.where(clause)
             }
           end
         end
