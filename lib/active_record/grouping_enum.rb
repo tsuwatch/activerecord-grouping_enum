@@ -7,16 +7,10 @@ module ActiveRecord
         values.each do |key, enums|
           _grouping_enum_methods_module.module_eval do
             klass.send(:detect_enum_conflict!, name, "#{key}?")
-            define_method("#{key}?") do
-              values = []
-              enums.each do |enum|
-                values << klass.defined_enums[name.to_s].fetch(enum.to_s)
-              end
-              values.include?(self[name])
-            end
+            define_method("#{key}?") { enums.map(&:to_s).include?(self[name]) }
 
-            klass.send(:detect_enum_conflict!, name, "#{key}", true)
-            klass.scope "#{key}", lambda {
+            klass.send(:detect_enum_conflict!, name, key.to_s, true)
+            klass.scope key.to_s, lambda {
               query = "#{name} == #{klass.defined_enums[name.to_s][enums.shift.to_s]}"
               enums.each do |enum|
                 query << " or #{name} == #{klass.defined_enums[name.to_s][enum.to_s]}"
